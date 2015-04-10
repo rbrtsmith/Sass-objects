@@ -1,0 +1,81 @@
+/**
+ * Defines an area of boxed off content with padding, the full-bleed modifier that can be added to children
+ * use negative margin to make them occupy the full width of the island.
+	
+<div class="island">
+	...
+</div>
+
+
+
+Island with full bleed inner component
+<div class="island">
+
+	<div class="island__full-bleed">
+		...
+	</div>
+</div>
+
+
+<div class="island island--double">
+	<div class="island__full-bleed--top">
+		...
+	</div>
+</div>
+
+
+
+*/
+
+$spacing: 1.5rem;
+
+$full-bleed: false;
+$full-bleed--sides: false;
+$full-bleed--ends: false;
+$full-bleed--top: false;
+$full-bleed--right: false;
+$full-bleed--bottom: false;
+$full-bleed--left: false;
+
+.island {
+	display: block;
+	padding: $spacing;
+	background: $zeta-color;
+	@if ($full-bleed) {
+		&__full-bleed {
+			margin: -$spacing;
+		}
+	}
+	@if ($full-bleed--sides) {
+		&__full-bleed--sides {
+			margin-left: -$spacing;
+			margin-right: -$spacing;
+		}
+	}
+	@if ($full-bleed--ends) {
+		&__full-bleed--ends {
+			margin-top: -$spacing;
+			margin-bottom: -$spacing;
+		}
+	}
+	@if ($full-bleed--top) {
+		&__full-bleed--top {
+			margin-top: -$spacing;
+		}
+	}
+	@if ($full-bleed--right) {
+		&__full-bleed--right {
+			margin-right: -$spacing;
+		}
+	}
+	@if ($full-bleed--bottom) {
+		&__full-bleed--bottom {
+			margin-bottom: -$spacing;
+		}
+	}
+	@if ($full-bleed--left) {
+		&__full-bleed--left {
+			margin-left: -$spacing;
+		}
+	}
+}
